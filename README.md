@@ -1,6 +1,6 @@
 # TrackTik FrontEnd Challenge
 ## App developed for TrackTik as FE challenge
-### Challenge mai goal:
+### Challenge main goal:
 - Create a web app (mobile first approach) with following features:
   - Request TrackTik REST API server (GET, POST, PACTH, PUT, DELETE)
   - Create Sites list page
@@ -39,10 +39,15 @@ External libs:
   ```
   ionic serve
   ```
-- Generate Production build
+- Generate Production build (will be inside www folder)
   ```
   npm run build-prod
   ```
+- Run Android app (make sure you have either a android simulator opened or a device connected to your computer)
+  ```
+  npm run android
+  ```
+-
 ### Overview of the Web App
 #### Features:
 
@@ -53,5 +58,5 @@ External libs:
 - After a successfull filter is listed, a button on the left side is available to exit the filter.
 - Pagination is available at the footer of Home page for both normal and filter listing.
 - Site Details page: Details an item clicked on Home page list
-- Site Details Edit mode: Clicking on the "EDIT" button on the footer the page turns into EDIT MODE page where the user can edit main contact informations.
+- Site Details Edit mode: Clicking on the "EDIT" button on the footer the page turns into EDIT MODE page where the user can edit main contact informations through PATCH request.
 
