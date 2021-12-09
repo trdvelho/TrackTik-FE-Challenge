@@ -1,0 +1,96 @@
+ion-header {
+    ion-toolbar {
+        --background: #F7F7F7;
+        position: relative;
+        ion-buttons {
+            position: absolute;
+            left: 0;
+            font-size: 30px;
+        }
+        ion-title {
+        display: flex;
+        flex-direction: column;
+        text-align: center;
+        .title {
+            font-size: 25px;
+            span{
+            background-color: var(--ion-tracktikred-color);
+            padding: 2px;
+            color: white
+            }
+        }
+        }
+    }
+}
+ion-content {
+    --background: lightgray;
+}
+.main-content{
+
+    .site-infos {
+        ion-label {
+            color:var(--ion-tracktikred-color);
+            font-weight: bold;
+        }
+    }
+    .contact-img {
+        img {
+            width: 100%;
+            min-height: 200px;
+        }
+    }
+
+    .main-contact-infos {
+        border-bottom: 1px solid var(--ion-tracktikred-color);
+        display: flex;
+        justify-content: flex-start;
+        align-items: center;
+        padding: 5px 8px;
+        .input-field{
+            width: 100%;
+        }
+
+        ion-icon {
+            font-size: 25px;
+            font-weight: bold;
+        }
+        .not-editting {
+            border: 3px solid lightgray;
+        }
+        .not-editting-name{
+            background-color: transparent;
+            //width: 50px !important;
+            border: none;
+            
+        }
+        .not-editting {
+            border-radius: 4px;
+            width: 350px;
+            background-color: transparent;
+        }
+        .edit-mode {
+            border: 1px solid white;
+            width: 350px;
+            margin-top: 2px;
+        }
+
+        .edit-address div {
+            display: flex;
+            align-items: center;
+            span {
+                margin-right: 3px;
+            }
+        }
+    }
+}
+
+ion-footer {
+    ion-buttons {
+        display: flex;
+        justify-content: space-around;
+        ion-button {
+            border: 5px;
+            width: 100%;
+        }
+    }
+}

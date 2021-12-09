@@ -1,0 +1,13 @@
+<ion-header>
+  <ion-title>Filter by</ion-title>
+</ion-header>
+<ion-content class="ion-padding">
+  <ion-label position="floating">Site title</ion-label>
+  <ion-input placeholder="Type it here" [(ngModel)]="siteTitle"></ion-input>
+  <ion-label position="floating">Contact first name</ion-label>
+  <ion-input placeholder="Type it here"[(ngModel)]="contactFirstName"></ion-input>
+  <ion-button expand="full" fill="solid" (click)="applyFilter()">
+    Apply
+  </ion-button>
+</ion-content>
+

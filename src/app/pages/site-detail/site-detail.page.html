@@ -1,0 +1,152 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-back-button></ion-back-button>
+    </ion-buttons>
+    <ion-title>
+      <div class="title">{{ editSite ? 'Edit' : 'View'}} <span>Site</span></div>
+    </ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <div class="main-content" *ngIf="site">
+      <ion-row >
+        <ion-col size="2" class="avatar">
+          <ion-avatar>
+            <img [src]="site.images[0].replace('.com', '.com.br')" onError="this.src='/assets/img/avatar-person.png'">
+          </ion-avatar>
+        </ion-col>
+        <ion-col size="10">
+          <div class="site-infos">
+            <ion-label>{{ site.title }}</ion-label>
+            <div class="subtitle"><strong>Address:</strong> {{ site.address.city }}</div>
+            <div class="subtitle">Main contact: {{ site.contacts.main.address.city }}</div>
+          </div>
+        </ion-col>
+    </ion-row>
+    <div class="contact-img">
+      <img [src]="site.images[0].replace('.com', '.com.br')" onError="this.src='/assets/img/no_image_available.jpeg'">
+    </div>
+    
+    <ion-row class="main-contact-infos">
+      <ion-col size="1">
+        <ion-icon name="person-outline"></ion-icon>
+      </ion-col>
+      <ion-col size="11">
+        <div>
+          <div *ngIf="!editSite"><strong>{{ site.contacts.main.firstName + ' ' + site.contacts.main.lastName  }}</strong></div>
+          <div *ngIf="editSite">First name:</div>
+        
+          <input
+            *ngIf="editSite"
+            [disabled]="!editSite"
+            [ngClass]="{ 'edit-mode': editSite, 'not-editting-name': !editSite }"  
+            [(ngModel)]="site.contacts.main.firstName"
+          >
+          <div *ngIf="editSite">Last name:</div>
+          <input
+            *ngIf="editSite"
+            [disabled]="!editSite"
+            [ngClass]="{ 'edit-mode': editSite, 'not-editting-name': !editSite }"  
+            [(ngModel)]="site.contacts.main.lastName"
+            size="5"
+          >
+          <div *ngIf="editSite">Job title:</div>
+          <input 
+            [disabled]="!editSite"
+            [ngClass]="{ 'edit-mode': editSite, 'not-editting': !editSite }"  
+            [(ngModel)]="site.contacts.main.jobTitle"
+          >
+        </div>
+      </ion-col>
+    </ion-row>
+
+    <ion-row class="main-contact-infos">
+      <ion-col size="1">
+        <ion-icon name="call-outline"></ion-icon>
+      </ion-col>
+      <ion-col size="11">
+        <div>
+          <div *ngIf="editSite">Phone number:</div>
+          <input
+            [disabled]="!editSite"
+            [ngClass]="{ 'edit-mode': editSite, 'not-editting': !editSite }" 
+            [(ngModel)]="site.contacts.main.phoneNumber"
+          >
+        </div>
+      </ion-col>
+    </ion-row>
+
+
+    <ion-row class="main-contact-infos">
+      <ion-col size="1">
+        <ion-icon name="mail-outline"></ion-icon>
+      </ion-col>
+      <ion-col size="11">
+        <div class="input-field">
+          <div *ngIf="editSite">Email:</div>
+          <input
+            [disabled]="!editSite"
+            [ngClass]="{ 'edit-mode': editSite, 'not-editting': !editSite }" 
+            [(ngModel)]="site.contacts.main.email"
+          >
+        </div>
+      </ion-col>
+    </ion-row>
+
+
+    <ion-row class="main-contact-infos">
+      <ion-col size="1">
+        <ion-icon name="navigate-outline"></ion-icon>
+      </ion-col>
+      <ion-col size="11">
+        <div *ngIf="!editSite">{{ getAddressInfo() }}</div>
+        <div class="edit-address" *ngIf="editSite">
+          <div>
+            <span>Street</span>
+            <input
+            [disabled]="!editSite"
+            [ngClass]="{ 'edit-mode': editSite, 'not-editting': !editSite }" 
+            [(ngModel)]="site.contacts.main.address.street"
+          >
+          </div>
+          <div>
+            <span>City</span>
+            <input
+              [disabled]="!editSite"
+              [ngClass]="{ 'edit-mode': editSite, 'not-editting': !editSite }" 
+              [(ngModel)]="site.contacts.main.address.city"
+            >
+          </div>
+          <div>
+            <span>State</span>
+            <input
+              [disabled]="!editSite"
+              [ngClass]="{ 'edit-mode': editSite, 'not-editting': !editSite }" 
+              [(ngModel)]="site.contacts.main.address.state"
+            >
+          </div>
+          <div>
+            <span>zipCode</span>
+            <input
+              [disabled]="!editSite"
+              [ngClass]="{ 'edit-mode': editSite, 'not-editting': !editSite }" 
+              [(ngModel)]="site.contacts.main.address.zipCode"
+            >
+          </div>
+        </div>
+      </ion-col>
+    </ion-row>
+  </div>
+</ion-content>
+
+<ion-footer>
+  <ion-toolbar>
+    <ion-buttons>
+      <ion-button *ngIf="!editSite" expand="full" fill="solid" (click)="isEditting()">EDIT</ion-button>
+      <ion-button *ngIf="editSite" fill="solid" color="danger" (click)="isEditting()">CANCEL</ion-button>
+      <ion-button *ngIf="editSite" fill="solid" color="primary" (click)="updateInfos()">SAVE</ion-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-footer>

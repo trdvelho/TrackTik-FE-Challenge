@@ -1,0 +1,156 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="end" (click)="closeModal()">
+      <ion-icon name="close-outline"></ion-icon>
+    </ion-buttons>
+    <ion-title>
+      <div class="title">Add <span>Site</span></div>
+    </ion-title>
+    
+  </ion-toolbar>
+</ion-header>
+<ion-content class="ion-padding">
+  <form [formGroup]="form" class="login-form" (submit)="addSite()" novalidate>
+    <div class="form-name">Site infos</div>
+    <ion-list class="ion-margin" lines="none">
+      <p> Required fields (*)</p>
+      <ion-item class="ion-margin-bottom ion-margin-top">
+        <ion-label position="floating">Name *</ion-label>
+        <ion-input
+          formControlName="title"
+          type="text"
+          placeholder="Type it here"
+        ></ion-input>
+      </ion-item>
+      
+      <ion-item class="ion-margin-bottom ion-margin-top">
+        <ion-label position="floating">Street *</ion-label>
+        <ion-input type="text"
+                   placeholder="type it here"
+                   formControlName="street"
+                   ></ion-input>
+      </ion-item>
+      <ion-item class="ion-margin-bottom ion-margin-top">
+        <ion-label position="floating">City *</ion-label>
+        <ion-input type="text"
+                   placeholder="type it here"
+                   formControlName="city"
+                   ></ion-input>
+      </ion-item>
+
+      <ion-item class="ion-margin-bottom ion-margin-top">
+        <ion-label position="floating">State *</ion-label>
+        <ion-input type="text"
+                   placeholder="type it here"
+                   formControlName="state"
+                   ></ion-input>
+      </ion-item>
+
+      <ion-item class="ion-margin-bottom ion-margin-top">
+        <ion-label position="floating">Country *</ion-label>
+        <ion-input type="text"
+                   placeholder="type it here"
+                   formControlName="country"
+                   ></ion-input>
+      </ion-item>
+
+      <ion-item class="ion-margin-bottom ion-margin-top">
+        <ion-label position="floating">Zip Code *</ion-label>
+        <ion-input type="text"
+                   placeholder="type it here"
+                   formControlName="zip"
+                   ></ion-input>
+      </ion-item>
+
+    
+    </ion-list>
+    <div class="form-name">Main contact</div>
+    <ion-list class="ion-margin" lines="none">
+      <p> Required fields (*)</p>
+      <ion-item class="ion-margin-bottom ion-margin-top">
+        <ion-label position="floating">First name *</ion-label>
+        <ion-input type="text"
+                   placeholder="Type it here"
+                   formControlName="firstName"></ion-input>
+      </ion-item>
+      
+      <ion-item class="ion-margin-bottom ion-margin-top">
+        <ion-label position="floating">Last name *</ion-label>
+        <ion-input type="text"
+                   placeholder="type it here"
+                   formControlName="lastName"
+                   ></ion-input>
+      </ion-item>
+
+      <ion-item class="ion-margin-bottom ion-margin-top">
+        <ion-label position="floating">Job title *</ion-label>
+        <ion-input type="text"
+                   placeholder="type it here"
+                   formControlName="contactJobTitle"
+                   ></ion-input>
+      </ion-item>
+
+      <ion-item class="ion-margin-bottom ion-margin-top">
+        <ion-label position="floating">Email</ion-label>
+        <ion-input type="text"
+                   placeholder="type it here"
+                   formControlName="contactEmail"
+                   ></ion-input>
+      </ion-item>
+
+      <ion-item class="ion-margin-bottom ion-margin-top">
+        <ion-label position="floating">Phone number *</ion-label>
+        <ion-input type="text"
+                   placeholder="type it here"
+                   formControlName="contactPhoneNumber"
+                   ></ion-input>
+      </ion-item>
+
+      <ion-item class="ion-margin-bottom ion-margin-top">
+        <ion-label position="floating">City</ion-label>
+        <ion-input type="text"
+                   placeholder="type it here"
+                   formControlName="contactCity"
+                   ></ion-input>
+      </ion-item>
+
+      <ion-item class="ion-margin-bottom ion-margin-top">
+        <ion-label position="floating">Street</ion-label>
+        <ion-input type="text"
+                   placeholder="type it here"
+                   formControlName="contactStreet"
+                   ></ion-input>
+      </ion-item>
+
+      <ion-item class="ion-margin-bottom ion-margin-top">
+        <ion-label position="floating">State</ion-label>
+        <ion-input type="text"
+                   placeholder="type it here"
+                   formControlName="contactState"
+                   ></ion-input>
+      </ion-item>
+
+      <ion-item class="ion-margin-bottom ion-margin-top">
+        <ion-label position="floating">Zip Code</ion-label>
+        <ion-input type="text"
+                   placeholder="type it here"
+                   formControlName="contactZip"
+                   ></ion-input>
+      </ion-item>
+
+    
+    </ion-list>
+
+
+    <ion-button
+      size="block" 
+      class="ion-text-uppercase"
+      type="submit"
+      [disabled]="!form.valid"
+    >
+      Add
+    </ion-button>
+  </form>
+</ion-content>
+
+

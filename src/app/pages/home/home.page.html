@@ -1,0 +1,94 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>
+      <div class="title">Track<span>Tik</span></div>
+      <div class="subtitle"><span>FE</span>Challenge</div>
+    </ion-title>
+  </ion-toolbar>
+
+  <ion-toolbar class="filter ion-padding" >
+    <ion-button *ngIf="filterData" class="filter-info" (click)="getSiteListData()">
+      <div *ngIf="filterData"><strong>Filtered by</strong> 
+        {{ filterData?.title && 'Site title: '+ filterData?.title }} 
+        {{ filterData?.contactFirstName && 'Contact first name: '+ filterData?.contactFirstName }}
+      </div>
+        <ion-icon name="close-circle-outline" slot="end"></ion-icon>
+    </ion-button>
+    <ion-buttons slot="end" (click)="showFilter($event)">
+      <ion-icon name="funnel-outline"></ion-icon>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true">
+
+  <!-- Skeleton screen -->
+  <div *ngIf="!sitesList">
+
+    <ion-list>
+      <ion-item *ngFor="let item of fakeList">
+        <ion-avatar slot="start">
+          <ion-skeleton-text animated></ion-skeleton-text>
+        </ion-avatar>
+        <ion-label>
+          <h3>
+            <ion-skeleton-text animated style="width: 50%"></ion-skeleton-text>
+          </h3>
+          <p>
+            <ion-skeleton-text animated style="width: 80%"></ion-skeleton-text>
+          </p>
+          <p>
+            <ion-skeleton-text animated style="width: 60%"></ion-skeleton-text>
+          </p>
+        </ion-label>
+      </ion-item>
+      
+    </ion-list>
+  </div>
+
+  <ion-list>
+    <ion-item-sliding 
+      *ngFor="let site of sitesList | paginate: { itemsPerPage: 10, currentPage: currentPage , totalItems: sitesTotalCount }; let i = index" 
+    >
+      <ion-item-options side="end">
+        <ion-item-option color="danger" (click)="deleteSite(i)">Delete</ion-item-option>
+      </ion-item-options>
+      <ion-item [routerLink]="['/site-detail', site.id]">
+        <ion-grid>
+          <ion-row>
+            <ion-col size="2" class="avatar">
+              
+              <ion-avatar>
+                <img [src]="site.images[0].replace('.com', '.com.br')" onError="this.src='/assets/img/avatar-person.png'">
+              </ion-avatar>
+            </ion-col>
+            <ion-col size="9">
+              <div class="site-infos">
+                <ion-label>{{ site.title }}</ion-label>
+                <div class="subtitle"><strong>Address:</strong> {{ site.address.city }}</div>
+                <div class="subtitle"><strong>Main contact:</strong> {{ site.contacts.main.address.city }}</div>
+              </div>
+            </ion-col>
+            
+            <ion-col size="1" class="arrow-right">
+              <ion-icon name="chevron-forward-outline"></ion-icon>
+            </ion-col>
+        </ion-row>
+        </ion-grid>
+      </ion-item>
+    </ion-item-sliding>
+  </ion-list>
+
+  <ion-fab vertical="bottom" horizontal="end" slot="fixed">
+    <ion-fab-button (click)="addSite()">
+      <ion-icon name="person-add-outline"></ion-icon>
+    </ion-fab-button>
+  </ion-fab>
+
+</ion-content>
+
+<ion-footer>
+  <ion-toolbar>
+    <pagination-controls (pageChange)="getPage($event)"></pagination-controls>
+  </ion-toolbar>
+</ion-footer>

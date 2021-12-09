@@ -1,0 +1,96 @@
+ion-toolbar {
+  --background: #F7F7F7;
+  ion-title {
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    .title {
+      font-size: 25px;
+      span{
+        background-color: var(--ion-tracktikred-color);
+        padding: 2px;
+        color: white
+      }
+    }
+    .subtitle {
+      font-size: 12px;
+      span{
+        color: white;
+        background-color: var(--ion-tracktikred-color);
+      }
+    }
+  }
+}
+
+.filter {
+  padding: 0 10px;
+  --background: lightgray;
+  .filter-info {
+    --background: transparent;
+    font-size: 10px;
+    --color: black;
+  }
+}
+
+ion-content {
+  --background: lightgray;
+  ion-list, ion-item-sliding{
+    --ion-item-background: transparent;
+
+    ion-avatar {
+      width: 50px;
+      height: 50px;
+      display: flex;
+      align-items: center;
+      img{
+        border: 2px solid black;
+      }
+      --border-radius: 50%;
+    }
+  }
+
+}
+
+ion-item {
+  .site-infos {
+    margin-left: 5px;
+    padding: 15px 0;
+    color: #cf2c26;
+    font-weight: bold;
+    .subtitle {
+      font-size: 12px;
+      font-weight: 400;
+      color: gray;
+    }
+  }
+  .avatar, .arrow-right {
+    display: flex;
+    align-items: center;
+  }
+  .arrow-right {
+    justify-content: flex-end;
+  }
+
+  .loading {
+    background: transparent url('http://thinkfuture.com/wp-content/uploads/2013/10/loading_spinner.gif') center no-repeat;
+  }
+}
+
+ion-fab-button {
+    --background: white;
+    ion-icon {
+      color: var(--ion-tracktikred-color);
+    }
+}
+
+ion-footer {
+  .ngx-pagination {
+    padding: 0;
+    margin-left: 0;
+    font-size: 11px;
+  }
+}
+
+
+
+
