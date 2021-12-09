@@ -8,7 +8,7 @@ import { AlertController } from '@ionic/angular';
 @Injectable()
 export class HttpInterceptorService implements HttpInterceptor {
   constructor(
-    private alertToast: AlertController
+    private alertCtrl: AlertController
   ){}
 
   intercept(request: HttpRequest<any>, next: HttpHandler): Observable<HttpEvent<any>> {
@@ -22,7 +22,7 @@ export class HttpInterceptorService implements HttpInterceptor {
             }
 
             if(err.status != 200){
-              const alert =  await this.alertToast.create({
+              const alert =  await this.alertCtrl.create({
                 header: 'Error alert!',
                 message: 'An error happened, please try again',
                 backdropDismiss: false,
