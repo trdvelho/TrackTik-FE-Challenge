@@ -60,3 +60,7 @@ External libs:
 - Site Details page: Details an item clicked on Home page list
 - Site Details Edit mode: Clicking on the "EDIT" button on the footer the page turns into EDIT MODE page where the user can edit main contact informations through PATCH request.
 
+### Conclusion
+
+I was possible to create all required features and add some extra features for the app.
+The only issue found was that the images inside the object where not available so i had to replace the ".com" with ".com.br" so images are shown.
