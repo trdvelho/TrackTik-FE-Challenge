@@ -52,7 +52,7 @@ External libs:
 #### Features:
 
 - Home page: Lists all sites from Tracktik API GET request
-- Add new site: Clicking on the floating button on the bottom right side the user can add a new site (witch is included at the end of the list - last page).
+- Add new site: Clicking on the floating button on the bottom right side the user can add (POST) a new site (witch is included at the end of the list - last page).
 - Sliding items to the left gives the user its DELETING option.
 - Filtering: By clicking on the funnel icon it is possivel to filter the list by Site title or Main contact first name.
 - After a successfull filter is listed, a button on the left side is available to exit the filter.
